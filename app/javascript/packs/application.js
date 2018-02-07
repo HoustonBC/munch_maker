@@ -10,8 +10,6 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ArticlesIndexContainer from './containers/ArticlesIndexContainer';
-import ArticleShowContainer from './containers/ArticleShowContainer';
 import App from './App'
 
 ReactDOM.render(
