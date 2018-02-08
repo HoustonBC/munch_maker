@@ -1,9 +1,11 @@
 class Restaurant < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :address, presence: true
-  validates :city, presence: true
-  validates :state, presence: true
-  validates :zip, presence: true, length: {is: 5}, numericality: { only_integer: true}
-  validates :picture, presence: true
+  validates :image_url, presence: true
+  validates :price, presence: true
+  validates :rating, presence: true
+  validates :display_phone, presence: true
+  validates :categories, presence: true
+  validates :location, presence: true
   has_many :matches
+  has_many :users, through: :matches
 end
