@@ -5,8 +5,11 @@ class RestaurantShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurant: {}
+      restaurant: {},
+      repeats: []
     }
+    this.onLike = this.onLike.bind(this)
+    this.onDisLike = this.onDisLike.bind(this)
   }
 
   componentDidMount() {
@@ -17,6 +20,37 @@ class RestaurantShowContainer extends Component {
         this.setState({ restaurant: jsonRestaurant })
       })
   }
+
+  onLike(event){
+    let payload= {restaurant: this.state.restaurant}
+    fetch('/api/restaurants', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      credentials: 'same-origin',
+      headers: {
+       'Content-Type': 'application/json',
+       'X-Requested-With': 'XMLHttpRequest'
+      },
+    })
+    this.onDisLike(event)
+  }
+
+  onDisLike(event){
+    event.preventDefault();
+    fetch('/api/restaurants')
+      .then(response => response.json())
+      .then(body => {
+        if (this.state.repeats.includes(body.id)){
+          this.onDisLike(event)
+        } else {
+          let jsonRestaurant = body
+          let previousState = this.state.repeats
+          this.setState({repeats: previousState.concat(body.id)})
+          this.setState({ restaurant: jsonRestaurant })
+        }
+      })
+  }
+
 
   render() {
     return(
@@ -30,12 +64,12 @@ class RestaurantShowContainer extends Component {
             rating={this.state.restaurant.rating}
             price={this.state.restaurant.price}
             location={this.state.restaurant.location} //is a hash
-            phone={this.state.restaurant.phone}
+            phone={this.state.restaurant.display_phone}
           />
         </div>
         <div>
-          <span><button type='button'>Dislike!</button></span>
-          <span><button type='button'>Like!</button></span>
+          <span><button onClick={this.onDisLike} type='button'>Dislike!</button></span>
+          <span><button onClick={this.onLike} type='button'>Like!</button></span>
         </div>
       </div>
     )
