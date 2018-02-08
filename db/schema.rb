@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20180205182437) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name", null: false
-    t.string "picture", null: false
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "zip", null: false
-    t.text "description"
+    t.string "image_url", null: false
+    t.string "price", null: false
+    t.string "rating", null: false
+    t.string "display_phone", null: false
+    t.string "categories", null: false, array: true
+    t.string "location", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
