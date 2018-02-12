@@ -2,6 +2,7 @@ require 'httparty'
 require 'uri'
 
 class Api::RestaurantsController < ApiController
+
   def index
     search_location = URI.escape(params['loc'])
     @getLength = HTTParty.get("https://api.yelp.com/v3/businesses/search?term=restaurants&location=#{search_location}", :headers=>{"Authorization"=>"Bearer #{ENV['YELP_KEY']}"})
@@ -16,8 +17,7 @@ class Api::RestaurantsController < ApiController
     @restaurant.location = location_params
     # {:location => [:address1, :city, :zip_code, :state, :country]}
     if @restaurant.save
-      @match = Match.new(name: @restaurant.name, restaurant_id: @restaurant.id, user_id: current_user.id)
-      @match.save!
+      @match = Match.create!(name: @restaurant.name, restaurant_id: @restaurant.id, user_id: current_user.id)
     end
   end
 
@@ -29,4 +29,5 @@ class Api::RestaurantsController < ApiController
   def location_params
     params['restaurant']['location']['display_address'].join(', ')
   end
+
 end
