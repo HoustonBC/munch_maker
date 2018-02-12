@@ -13,14 +13,20 @@ class RestaurantShowContainer extends Component {
   }
 
   componentDidMount() {
-    let loc = this.props.params.location
-    debugger;
-    fetch('/api/restaurants' + loc,)
-      .then(response => response.json())
-      .then(body => {
-        let jsonRestaurant = body
-        this.setState({ restaurant: jsonRestaurant })
-      })
+    let payload = this.props.location
+    fetch('/api/restaurants?loc=' + payload, {
+      method: 'GET',
+      credentials: 'same-origin',
+      headers: {
+       'Content-Type': 'application/json',
+       'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      let jsonRestaurant = body
+      this.setState({ restaurant: jsonRestaurant })
+    })
   }
 
   onLike(event){
@@ -39,7 +45,15 @@ class RestaurantShowContainer extends Component {
 
   onDisLike(event){
     event.preventDefault();
-    fetch('/api/restaurants')
+    let payload = this.props.location
+    fetch('/api/restaurants?loc=' + payload, {
+      method: 'GET',
+      credentials: 'same-origin',
+      headers: {
+       'Content-Type': 'application/json',
+       'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
       .then(response => response.json())
       .then(body => {
         if (this.state.repeats.includes(body.id)){
