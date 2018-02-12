@@ -13,22 +13,30 @@ class RestaurantShowContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/restaurants')
-      .then(response => response.json())
-      .then(body => {
-        let jsonRestaurant = body
-        this.setState({ restaurant: jsonRestaurant })
-      })
+    let payload = this.props.location
+    fetch('/api/restaurants.json?loc=' + payload, {
+      method: 'GET',
+      credentials: 'same-origin',
+      headers: {
+       'Content-Type': 'application/json',
+       'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      let jsonRestaurant = body
+      this.setState({ restaurant: jsonRestaurant })
+    })
   }
 
   onLike(event){
     let payload= {restaurant: this.state.restaurant}
-    fetch('/api/restaurants', {
+    fetch('/api/restaurants.json', {
       method: 'POST',
       body: JSON.stringify(payload),
       credentials: 'same-origin',
       headers: {
-       'Content-Type': 'application/json',
+       'content-type': 'application/json',
        'X-Requested-With': 'XMLHttpRequest'
       },
     })
@@ -37,7 +45,15 @@ class RestaurantShowContainer extends Component {
 
   onDisLike(event){
     event.preventDefault();
-    fetch('/api/restaurants')
+    let payload = this.props.location
+    fetch('/api/restaurants.json?loc=' + payload, {
+      method: 'GET',
+      credentials: 'same-origin',
+      headers: {
+       'Content-Type': 'application/json',
+       'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
       .then(response => response.json())
       .then(body => {
         if (this.state.repeats.includes(body.id)){
