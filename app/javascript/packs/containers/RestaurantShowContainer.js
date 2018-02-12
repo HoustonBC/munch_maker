@@ -13,7 +13,9 @@ class RestaurantShowContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/restaurants')
+    let loc = this.props.params.location
+    debugger;
+    fetch('/api/restaurants' + loc,)
       .then(response => response.json())
       .then(body => {
         let jsonRestaurant = body
