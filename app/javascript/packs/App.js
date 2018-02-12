@@ -8,6 +8,7 @@ const App = (props) => {
     <div>
       <Router history={browserHistory}>
         <Route path='/' component={HomePageComponent} />
+        <Route path='/restaurants/:location' component={RestaurantShowContainer} />
         <Route path='/restaurants' component={RestaurantShowContainer} />
       </Router>
     </div>
