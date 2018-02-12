@@ -14,7 +14,7 @@ class RestaurantShowContainer extends Component {
 
   componentDidMount() {
     let payload = this.props.location
-    fetch('/api/restaurants?loc=' + payload, {
+    fetch('/api/restaurants.json?loc=' + payload, {
       method: 'GET',
       credentials: 'same-origin',
       headers: {
@@ -31,12 +31,12 @@ class RestaurantShowContainer extends Component {
 
   onLike(event){
     let payload= {restaurant: this.state.restaurant}
-    fetch('/api/restaurants', {
+    fetch('/api/restaurants.json', {
       method: 'POST',
       body: JSON.stringify(payload),
       credentials: 'same-origin',
       headers: {
-       'Content-Type': 'application/json',
+       'content-type': 'application/json',
        'X-Requested-With': 'XMLHttpRequest'
       },
     })
@@ -46,7 +46,7 @@ class RestaurantShowContainer extends Component {
   onDisLike(event){
     event.preventDefault();
     let payload = this.props.location
-    fetch('/api/restaurants?loc=' + payload, {
+    fetch('/api/restaurants.json?loc=' + payload, {
       method: 'GET',
       credentials: 'same-origin',
       headers: {
