@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const HomePageComponent = (props) => {
-  return(
-    <div>
-      <a href='users/sign_in'><button type='button'> Log In </button></a>
-      <br />
-      <a href='users/sign_up'><button type='button'> Sign Up </button></a>
-    </div>
-  )
+class HomePageComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: false
+    }
+  }
+
+  componentDidMount() {
+    debugger;
+    fetch('/api/homes', {credentials: 'same-origin'})
+      .then(response => response.json())
+      .then(body => {
+        let logInStatus = body
+        this.setState({ user: logInStatus })
+      })
+      if (this.state.user == true){
+        window.location = "/restaurants";
+      }
+  }
+
+  render() {
+    let LoginPage = (
+        <div>
+          <a href='users/sign_in'><button type='button'> Log In </button></a>
+          <br />
+          <a href='users/sign_up'><button type='button'> Sign Up </button></a>
+        </div>
+    )
+    return(
+      <div>
+        {LoginPage}
+      </div>
+    )
+  }
 
 }
 
