@@ -6,8 +6,7 @@ class SideBarComponent extends Component {
     super(props);
     this.state = {
       matches: [],
-      location: '',
-      update: false
+      location: ''
     }
     this.deleteMatch = this.deleteMatch.bind(this);
   }
@@ -19,8 +18,6 @@ class SideBarComponent extends Component {
         let returned_matches = body
         this.setState({ matches: returned_matches })
       })
-      debugger;
-      this.setState({ update: false })
   }
 
   deleteMatch(current_match){
@@ -31,8 +28,10 @@ class SideBarComponent extends Component {
        'Content-Type': 'application/json',
        'X-Requested-With': 'XMLHttpRequest'
       }
+    }).then((response) => {
+      const newMatches = this.state.matches.filter(match => match.id !== current_match)
+      this.setState({matches: newMatches})
     })
-    this.setState({ update: true })
   }
 
   render(){
