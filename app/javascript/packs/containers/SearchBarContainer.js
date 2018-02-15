@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import RestaurantShowContainer from '../containers/RestaurantShowContainer'
+import SideBarComponent from '../components/SideBarComponent'
 import { Link } from 'react-router';
+import { slide as Menu } from 'react-burger-menu'
 
 class SearchBarContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: true,
       searchText: '',
       location: ''
     }
     this.searchSubmit = this.searchSubmit.bind(this)
     this.searchTextChange = this.searchTextChange.bind(this)
+
+    // this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
+
+  showSettings (event) {
+    event.preventDefault();
+  }
+
+  // onSetSidebarOpen(open){
+  //   this.setState({sidebarOpen: open});
+  // }
 
   searchTextChange(event) {
     this.setState({searchText: event.target.value});
@@ -24,7 +35,6 @@ class SearchBarContainer extends Component {
   }
 
   componentDidMount() {
-    debugger;
     fetch('/api/homes', {credentials: 'same-origin'})
       .then(response => response.json())
       .then(body => {
@@ -36,25 +46,19 @@ class SearchBarContainer extends Component {
   render() {
     let conditionalDisplay;
     let searchBar = (
-      <form onSubmit={this.searchSubmit} className='search'>
-        <label> Let's get started! Enter your location.
+      <form onSubmit={this.searchSubmit} className='searchBox'>
+        <label>
           <input
             name="searchText"
             type="text"
             value={this.state.searchText}
             onChange={this.searchTextChange}
-            placeholder="Location"
+            placeholder="Enter your Location"
+            id='searchBar'
           />
         </label>
-        <input className="button" type="submit" value="Submit"/>
+        <input className="button" id='sbutton' type="submit" value="Submit"/>
       </form>
-    )
-    let LoginPage = (
-        <div>
-          <a href='users/sign_in'><button type='button'> Log In </button></a>
-          <br />
-          <a href='users/sign_up'><button type='button'> Sign Up </button></a>
-        </div>
     )
     let restaurantShow = (
       <div>
@@ -63,18 +67,23 @@ class SearchBarContainer extends Component {
         />
       </div>
     )
-    if (this.state.user == true){
-      if (this.state.location != '')
-        conditionalDisplay = restaurantShow;
-      else {
-        conditionalDisplay = searchBar;
-      }
-    } else if (this.state.user == false){
-      conditionalDisplay = LoginPage;
+    let sideBar = (
+      <SideBarComponent
+      />
+    )
+    if (this.state.location != '')
+      conditionalDisplay = restaurantShow;
+    else {
+      conditionalDisplay = searchBar;
     }
     return(
       <div>
-        {conditionalDisplay}
+        <div>
+          {sideBar}
+        </div>
+        <div>
+          {conditionalDisplay}
+        </div>
       </div>
     )
   }
