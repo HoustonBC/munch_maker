@@ -70,7 +70,7 @@ class RestaurantShowContainer extends Component {
 
   render() {
     return(
-      <div>
+      <div className='restaurant-show'>
         <div>
           <RestaurantShowComponent
             id={this.state.restaurant.id}

@@ -5,13 +5,15 @@ const RestaurantShowComponent = (props) => {
   let imgTag = ''
   if(props.image){
     imgTag = (
-      <img src={"" + props.image} alt="Restaurant Name" />
+      <div id='rimage'>
+        <img src={"" + props.image} alt="Restaurant Name" />
+      </div>
     )
   }
 
   let categories = (props.categories || []).map(category => {
     return(
-      <li>{category['title']} </li>
+      <span> {category['title']},  </span>
     )
   })
 
@@ -23,16 +25,16 @@ const RestaurantShowComponent = (props) => {
     }
 
   return(
-    <div className="restaurant-show">
+    <div>
       <h2>{props.name}</h2>
       <p>{props.phone}</p>
       {location}
       {imgTag}
       <div>Rating: {props.rating}</div>
       <div>Price: {props.price}</div>
-      <ul> Categories:
+      <div> Categories:
         {categories}
-      </ul>
+      </div>
     </div>
   )
 }
