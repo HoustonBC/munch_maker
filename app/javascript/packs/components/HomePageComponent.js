@@ -24,13 +24,13 @@ class HomePageComponent extends Component {
   render() {
     let LoginPage = (
         <div>
-          <a href='users/sign_in'><button type='button'> Log In </button></a>
+          <a href='users/sign_in' id='lbutton'><button type='button'> Log In </button></a>
           <br />
-          <a href='users/sign_up'><button type='button'> Sign Up </button></a>
+          <a href='users/sign_up' id='lbutton'><button type='button'> Sign Up </button></a>
         </div>
     )
     return(
-      <div>
+      <div className='homepage'>
         {LoginPage}
       </div>
     )
