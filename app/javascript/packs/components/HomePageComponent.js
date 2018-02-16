@@ -22,10 +22,10 @@ class HomePageComponent extends Component {
 
   render() {
     let LoginPage = (
-        <div>
-          <a href='users/sign_in' id='lbutton'><button type='button'> Log In </button></a>
+        <div id="nav">
+          <a href='users/sign_in' className='home-page-buttons'> Log In </a>
           <br />
-          <a href='users/sign_up' id='lbutton'><button type='button'> Sign Up </button></a>
+          <a href='users/sign_up' className='home-page-buttons'> Sign Up </a>
         </div>
     )
     return(
