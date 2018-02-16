@@ -12,20 +12,32 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
-
  */
 
 .homepage {
   margin: auto;
-  width: 1200px;
+  width: 200px;
   position: absolute;
-  top:35%;
-  left: 18%;
+  top:38%;
+  left: 42%;
   opacity: 0.8;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+}
+
+.home-page-buttons {
+  background-color: #4CAF50;
+  width: 80%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 9%;
+  cursor: pointer;
 }
 
 .searchBox {
@@ -77,11 +89,8 @@
   background: #ffffff;
 }
 
-/////
 
-#lbutton{
-  width: 800px;
-}
+
 
 #sbutton {
   float: left;
