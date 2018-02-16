@@ -5,87 +5,31 @@ class RestaurantShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurant: {},
-      repeats: []
     }
-    this.onLike = this.onLike.bind(this)
-    this.onDisLike = this.onDisLike.bind(this)
   }
 
   componentDidMount() {
-    let payload = this.props.location
-    fetch('/api/restaurants.json?loc=' + payload, {
-      method: 'GET',
-      credentials: 'same-origin',
-      headers: {
-       'Content-Type': 'application/json',
-       'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-    .then(response => response.json())
-    .then(body => {
-      let jsonRestaurant = body
-      this.setState({ restaurant: jsonRestaurant })
-    })
+    this.props.initialRender()
   }
-
-  onLike(event){
-    let payload= {restaurant: this.state.restaurant}
-    fetch('/api/restaurants.json', {
-      method: 'POST',
-      body: JSON.stringify(payload),
-      credentials: 'same-origin',
-      headers: {
-       'content-type': 'application/json',
-       'X-Requested-With': 'XMLHttpRequest'
-      },
-    })
-    this.onDisLike(event)
-  }
-
-  onDisLike(event){
-    event.preventDefault();
-    let payload = this.props.location
-    fetch('/api/restaurants.json?loc=' + payload, {
-      method: 'GET',
-      credentials: 'same-origin',
-      headers: {
-       'Content-Type': 'application/json',
-       'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-      .then(response => response.json())
-      .then(body => {
-        if (this.state.repeats.includes(body.id)){
-          this.onDisLike(event)
-        } else {
-          let jsonRestaurant = body
-          let previousState = this.state.repeats
-          this.setState({repeats: previousState.concat(body.id)})
-          this.setState({ restaurant: jsonRestaurant })
-        }
-      })
-  }
-
 
   render() {
     return(
       <div className='restaurant-show'>
         <div>
           <RestaurantShowComponent
-            id={this.state.restaurant.id}
-            name={this.state.restaurant.name}
-            image={this.state.restaurant.image_url}
-            categories={this.state.restaurant.categories} // is an array
-            rating={this.state.restaurant.rating}
-            price={this.state.restaurant.price}
-            location={this.state.restaurant.location} //is a hash
-            phone={this.state.restaurant.display_phone}
+            id={this.props.restaurant.id}
+            name={this.props.restaurant.name}
+            image={this.props.restaurant.image_url}
+            categories={this.props.restaurant.categories} // is an array
+            rating={this.props.restaurant.rating}
+            price={this.props.restaurant.price}
+            location={this.props.restaurant.location} //is a hash
+            phone={this.props.restaurant.display_phone}
           />
         </div>
         <div>
-          <span><button onClick={this.onDisLike} type='button'>Dislike!</button></span>
-          <span><button onClick={this.onLike} type='button'>Like!</button></span>
+          <span><button onClick={this.props.handleDisLike} type='button'>Dislike!</button></span>
+          <span><button onClick={this.props.handleLike} type='button'>Like!</button></span>
         </div>
       </div>
     )
