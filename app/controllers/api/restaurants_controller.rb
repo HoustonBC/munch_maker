@@ -15,7 +15,6 @@ class Api::RestaurantsController < ApiController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.location = location_params
-    # {:location => [:address1, :city, :zip_code, :state, :country]}
     if @restaurant.save
       @match = Match.create!(name: @restaurant.name, restaurant_id: @restaurant.id, user_id: current_user.id)
     end
