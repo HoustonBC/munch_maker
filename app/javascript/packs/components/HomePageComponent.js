@@ -9,7 +9,6 @@ class HomePageComponent extends Component {
   }
 
   componentDidMount() {
-    debugger;
     fetch('/api/homes', {credentials: 'same-origin'})
       .then(response => response.json())
       .then(body => {
