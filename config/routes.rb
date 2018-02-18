@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :homes
     resources :matches
+    resources :users
   end
 
-  resources :restaurants
+  resources :restaurants, only: [:index]
+
+  get '*path' => 'homes#index'
 
 end

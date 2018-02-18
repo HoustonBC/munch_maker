@@ -8,6 +8,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div>
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_photo %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

@@ -12,16 +12,21 @@ const RestaurantShowComponent = (props) => {
   }
 
   let categories = (props.categories || []).map(category => {
-    return(
-      <span> {category['title']},  </span>
-    )
+      debugger;
+      return(
+        <span> {category['title']},  </span>
+      )
   })
 
   let location = ''
     if(props.location){
-      location = (
-        <p> {props.location.display_address[0]}, {props.location.display_address[1]} </p>
-      )
+      if(props.location.display_address){
+        location = (
+          <p> {props.location.display_address[0]}, {props.location.display_address[1]} </p>
+        )
+      } else {
+        <p> {props.location} </p>
+      }
     }
 
   return(

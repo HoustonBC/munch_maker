@@ -12,6 +12,11 @@ class Api::RestaurantsController < ApiController
     render json: @restaurant['businesses'][index]
   end
 
+  def show
+    @restaurant = Restaurant.find(params['id'])
+    render json: @restaurant
+  end
+
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.location = location_params
