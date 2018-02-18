@@ -43,7 +43,9 @@ class RestaurantPlanContainer extends Component {
             phone={this.state.restaurant.display_phone}
           />
         </div>
-        <UserSearchComponent/>
+        <UserSearchComponent
+          restaurant={this.state.restaurant}
+        />
       </div>
 
     )

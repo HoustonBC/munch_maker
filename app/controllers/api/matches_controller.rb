@@ -6,6 +6,10 @@ class Api::MatchesController < ApiController
   def show
   end
 
+  def create
+    InviteMailer.new_invite(params['_json'], params['recipient'], current_user.email).deliver_now
+  end
+
   def destroy
     match = Match.find(params['id'])
     match.delete
