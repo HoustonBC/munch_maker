@@ -12,7 +12,6 @@ const RestaurantShowComponent = (props) => {
   }
 
   let categories = (props.categories || []).map(category => {
-      debugger;
       return(
         <span> {category['title']},  </span>
       )
