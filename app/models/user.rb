@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :matches
+  mount_uploader :profile_photo, ProfilePhotoUploader
 end

@@ -31,6 +31,14 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div>
+    <label>Edit Profile Pic</label>
+    <%if current_user.profile_photo.present? %>
+    <%= image_tag(@user.profile_photo) %>
+    <%end %>
+    <%= f.file_field :profile_photo %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
