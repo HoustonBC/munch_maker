@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu'
+import { Link } from 'react-router'
 
 class SideBarComponent extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class SideBarComponent extends Component {
   render(){
     let matches = this.props.matches.map(Match => {
       return(
-        <div id="match"> {Match.name} <span onClick={() => this.props.handleDelete(Match.id)} className='ecks'><i className="fas fa-times"></i></span></div>
+        <div id="match"> <Link to={`/restaurants/${Match.id}`}>{Match.name}</Link> <span onClick={() => this.props.handleDelete(Match.id)} className='ecks'><i className="fas fa-times"></i></span></div>
       )
     })
 
