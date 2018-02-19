@@ -25,6 +25,7 @@ class RestaurantPlanContainer extends Component {
     .then(body => {
         let jsonRestaurant = body
         this.setState({ restaurant: jsonRestaurant })
+        debugger;
       })
   }
 
@@ -42,6 +43,11 @@ class RestaurantPlanContainer extends Component {
             location={this.state.restaurant.location} //is a hash
             phone={this.state.restaurant.display_phone}
           />
+          <br />
+          <br />
+          <h3>
+            Press '/' to search for Users to invite
+          </h3>
         </div>
         <UserSearchComponent
           restaurant={this.state.restaurant}
