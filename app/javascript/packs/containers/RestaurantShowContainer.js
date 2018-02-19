@@ -28,8 +28,8 @@ class RestaurantShowContainer extends Component {
           />
         </div>
         <div>
-          <span><button onClick={this.props.handleDisLike} type='button'>Dislike!</button></span>
-          <span><button onClick={this.props.handleLike} type='button'>Like!</button></span>
+          <span id='dislike'> <a id='dl' onClick={this.props.handleDisLike}>Dislike!</a></span>
+          <span id='like'> <a id='ll' onClick={this.props.handleLike}>Like!</a></span>
         </div>
       </div>
     )
