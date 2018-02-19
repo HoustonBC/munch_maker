@@ -25,7 +25,6 @@ class RestaurantPlanContainer extends Component {
     .then(body => {
         let jsonRestaurant = body
         this.setState({ restaurant: jsonRestaurant })
-        debugger;
       })
   }
 
@@ -37,7 +36,6 @@ class RestaurantPlanContainer extends Component {
             id={this.state.restaurant.id}
             name={this.state.restaurant.name}
             image={this.state.restaurant.image_url}
-            categories={this.state.restaurant.categories} // is an array
             rating={this.state.restaurant.rating}
             price={this.state.restaurant.price}
             location={this.state.restaurant.location} //is a hash
