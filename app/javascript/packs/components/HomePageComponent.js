@@ -23,9 +23,9 @@ class HomePageComponent extends Component {
   render() {
     let LoginPage = (
         <div id="nav">
-          <a href='users/sign_in' className='home-page-buttons'> Log In </a>
-          <br />
-          <a href='users/sign_up' className='home-page-buttons'> Sign Up </a>
+          <h3> Welcome to Munch Maker </h3>
+          <div id='hpb'><a href='users/sign_in' className='home-page-buttons'> Log In </a></div>
+          <div id='hpb'><a href='users/sign_up' className='home-page-buttons'> Sign Up </a></div>
         </div>
     )
     return(

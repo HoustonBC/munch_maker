@@ -12,20 +12,34 @@ const RestaurantShowComponent = (props) => {
   }
 
   let categories = (props.categories || []).map(category => {
-      return(
-        <span> {category['title']},  </span>
-      )
-  })
+    return(
+      <span> {category['title']},  </span>
+    )}
+  )
 
   let location = ''
-    if(props.location){
-      if(props.location.display_address){
-        location = (
-          <p> {props.location.display_address[0]}, {props.location.display_address[1]} </p>
-        )
-      } else {
-        <p> {props.location} </p>
-      }
+  if(props.location){
+    if(props.location.display_address){
+      location = (
+        <p> {props.location.display_address[0]}, {props.location.display_address[1]} </p>
+      )
+    } else {
+      <p> {props.location} </p>
+    }
+  }
+
+  let categoryContainer
+  if (props.categories){
+    debugger;
+    categoryContainer = (
+        <div> Categories:
+          {categories}
+        </div>
+      )
+    } else {
+      categoryContainer = (
+        <div></div>
+      )
     }
 
   return(
@@ -36,9 +50,7 @@ const RestaurantShowComponent = (props) => {
       {imgTag}
       <div>Rating: {props.rating}</div>
       <div>Price: {props.price}</div>
-      <div> Categories:
-        {categories}
-      </div>
+      {categoryContainer}
     </div>
   )
 }
