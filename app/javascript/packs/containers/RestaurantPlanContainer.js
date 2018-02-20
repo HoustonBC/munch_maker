@@ -36,12 +36,16 @@ class RestaurantPlanContainer extends Component {
             id={this.state.restaurant.id}
             name={this.state.restaurant.name}
             image={this.state.restaurant.image_url}
-            categories={this.state.restaurant.categories} // is an array
             rating={this.state.restaurant.rating}
             price={this.state.restaurant.price}
             location={this.state.restaurant.location} //is a hash
             phone={this.state.restaurant.display_phone}
           />
+          <br />
+          <br />
+          <h3>
+            Press '/' to search for Users to invite
+          </h3>
         </div>
         <UserSearchComponent
           restaurant={this.state.restaurant}

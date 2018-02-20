@@ -11,7 +11,6 @@ feature "profile photo" do
     attach_file :user_profile_photo, "#{Rails.root}/spec/support/images/image.png"
     click_button "Sign up"
 
-    expect(page).to have_content("Welcome! You have signed up successfully.")
     expect(page).to have_css("img[src*='image.png']")
   end
 end
