@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Name: Munch Maker
 
-Things you may want to cover:
+Description: A website that matches users with a series of random restaurants based on their location that they can then like or dislike.
 
-* Ruby version
+Author: Houston Charles
 
-* System dependencies
+Heroku link: https://munch-maker.herokuapp.com/
 
-* Configuration
+Features: Users can create restaurants as well as reviews for a given restaurant.
 
-* Database creation
+Technologies: React, Rails, Yelp API, FontAwesome, Heroku, Devise, AWS, Carrierwave
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Badges: Codeship
