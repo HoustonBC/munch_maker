@@ -45,6 +45,29 @@
    border-radius: 5px;
  }
 
+ #search {
+   padding: 10px;
+   background: #E50000;
+   color: white;
+   font-size: 17px;
+   border: none;
+   padding: 3px 1px 1px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   border-radius: 5px;
+   padding-top: 2px;
+   padding-left: 2px;
+   margin-left: 1%;
+   position: fixed;
+   width: 100px;
+   top: 72px;
+ }
+ #sblink {
+   color: white
+ }
+
  #like {
    width: 20%;
    padding: 10px;

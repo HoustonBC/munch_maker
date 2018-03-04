@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RestaurantShowComponent from "../components/RestaurantShowComponent"
 import UserSearchComponent from "../components/UserSearchComponent"
+import { Link } from 'react-router'
 
 
 class RestaurantPlanContainer extends Component {
@@ -31,6 +32,7 @@ class RestaurantPlanContainer extends Component {
   render(){
     return(
       <div>
+      <div id='search'> <Link to={`/restaurants`} id='sblink'> Return to Search </Link> </div>
         <div className='restaurant-show'>
           <RestaurantShowComponent
             id={this.state.restaurant.id}
@@ -38,7 +40,7 @@ class RestaurantPlanContainer extends Component {
             image={this.state.restaurant.image_url}
             rating={this.state.restaurant.rating}
             price={this.state.restaurant.price}
-            location={this.state.restaurant.location} //is a hash
+            location={this.state.restaurant.location}
             phone={this.state.restaurant.display_phone}
           />
           <br />
