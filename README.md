@@ -1,4 +1,5 @@
 # README
+[ ![Codeship Status for HoustonBC/munch_maker](https://app.codeship.com/projects/be4d5ea0-ecbd-0135-6c23-1ea4b672d33f/status?branch=master)](https://app.codeship.com/projects/270395)
 
 Name: Munch Maker
 
