@@ -64,35 +64,11 @@ class UserSearchComponent extends Component {
   }
 
   render(){
-    // let userList = this.state.users.map(user => {
-    //   let queryString = this.state.searchText
-    //   if (user.email.includes(queryString)){
-    //     return(
-    //       <div>{user.email}</div>
-    //     )
-    //   }
-    // })
-
-
     return(
       <FuzzyWrapper
         isKeyPressed={this.isCorrectKeyPressed}
         popup={this.renderFuzzyPicker}
       />
-      // <form>
-      //   <input
-      //     name="searchText"
-      //     type="text"
-      //     value={this.state.searchText}
-      //     onChange={this.searchTextChange}
-      //     placeholder="Search for a user"
-      //     id='UserSearch'
-      //     list='UserSearch'
-      //   />
-      //   <datalist id="UserSearch">
-      //     {userList}
-      //   </datalist>
-      // </form>
     )
   }
 
