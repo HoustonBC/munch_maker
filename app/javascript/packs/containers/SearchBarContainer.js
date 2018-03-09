@@ -133,7 +133,7 @@ class SearchBarContainer extends Component {
             type="text"
             value={this.state.searchText}
             onChange={this.searchTextChange}
-            placeholder="Enter your Location"
+            placeholder="Enter your City"
             id='searchBar'
           />
         </label>
