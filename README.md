@@ -9,8 +9,6 @@ Author: Houston Charles
 
 Heroku link: https://munch-maker.herokuapp.com/
 
-Features: Users can create restaurants as well as reviews for a given restaurant.
-
 Technologies: React, Rails, Yelp API, FontAwesome, Heroku, Devise, AWS, Carrierwave
 
 Badges: Codeship
