@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import  { Redirect } from 'react-router'
+import {withRouter} from 'react-router';
+import { browserHistory } from 'react-router'
 
 class HomePageComponent extends Component {
   constructor(props) {
@@ -21,6 +24,9 @@ class HomePageComponent extends Component {
   }
 
   render() {
+    if (this.state.user == true){
+      browserHistory.push('/restaurants');
+    }
     let LoginPage = (
         <div id="nav">
           <h3> Welcome to Munch Maker </h3>
