@@ -12,6 +12,10 @@
  *= require_tree .
  *= require_self
  */
+
+ label {
+   color: white
+ }
  .homepage {
    margin: auto;
    height: 200px;
