@@ -9,6 +9,8 @@ group :test do
   gem 'database_cleaner'
 end
 
+gem "active_model_serializers"
+
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
