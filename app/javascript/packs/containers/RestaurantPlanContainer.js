@@ -45,9 +45,6 @@ class RestaurantPlanContainer extends Component {
           />
           <br />
           <br />
-          <h3>
-            Press '/' to search for Users to invite
-          </h3>
         </div>
         <UserSearchComponent
           restaurant={this.state.restaurant}
