@@ -33,7 +33,7 @@ class RestaurantPlanContainer extends Component {
     return(
       <div>
       <div id='search'> <Link to={`/restaurants`} id='sblink'> Return to Search </Link> </div>
-        <div className='restaurant-show'>
+        <div className='restaurant-save'>
           <RestaurantShowComponent
             id={this.state.restaurant.id}
             name={this.state.restaurant.name}
@@ -43,8 +43,6 @@ class RestaurantPlanContainer extends Component {
             location={this.state.restaurant.location}
             phone={this.state.restaurant.display_phone}
           />
-          <br />
-          <br />
         </div>
         <UserSearchComponent
           restaurant={this.state.restaurant}

@@ -39,7 +39,6 @@ class SearchBarContainer extends Component {
     .then(body => {
       let returned_matches = body
       this.setState({ matches: returned_matches })
-      debugger;
     })
   }
 

@@ -160,6 +160,21 @@
    text-align: center;
  }
 
+ .restaurant-save {
+   margin: auto;
+   width: 500px;
+   height: 500px;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: rgba(242, 242, 242, 0.7);
+   border-radius: 5px;
+   padding: 10px;
+   text-align: center;
+ }
+
  .ecks {
    float: right;
  }
