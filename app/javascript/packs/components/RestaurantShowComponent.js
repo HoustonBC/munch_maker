@@ -30,22 +30,21 @@ const RestaurantShowComponent = (props) => {
 
   let categoryContainer
   if (props.categories){
-    debugger;
     categoryContainer = (
-        <div> Categories:
+        <p> Categories:
           {categories}
-        </div>
+        </p>
       )
     } else {
       categoryContainer = (
-        <div></div>
+        <p></p>
       )
     }
 
   return(
     <div>
       <h2>{props.name}</h2>
-      <p>{props.phone}</p>
+      <div>{props.phone}</div>
       {location}
       {imgTag}
       <div>Rating: {props.rating}</div>
