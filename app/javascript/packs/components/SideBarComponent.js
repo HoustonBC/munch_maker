@@ -12,8 +12,8 @@ class SideBarComponent extends Component {
 
   render(){
     let matches
-    if (this.state.matches.length > 0){
-      let matches = this.props.matches.map(Match => {
+    if (this.props.matches.length > 0){
+      matches = this.props.matches.map(Match => {
         return(
           <div id="match"> <Link to={`/restaurants/${Match.id}`}>{Match.name}</Link> <span onClick={() => this.props.handleDelete(Match.id)} className='ecks'><i className="fas fa-times"></i></span></div>
         )
