@@ -20,9 +20,8 @@ class UserSearchComponent extends Component {
     fetch('/api/users', {credentials: 'same-origin'})
       .then(response => response.json())
       .then(body => {
-        let useresponse = body
+        let useresponse = body['users']
         this.setState({ users: useresponse })
-
       })
   }
 
@@ -45,9 +44,12 @@ class UserSearchComponent extends Component {
   }
 
   renderFuzzyPicker(isOpen, onClose) {
-    let userList = this.state.users.map(user => (
-      user.email
-    ))
+    let userList
+    if (this.state.users.lenght > 0){
+      let userList = this.state.users.map(user => (
+        user.email
+      ))
+    }
     return(
       <FuzzyPicker
         label='User search'
