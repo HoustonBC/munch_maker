@@ -32,7 +32,6 @@ class RestaurantPlanContainer extends Component {
   render(){
     return(
       <div>
-      <div id='search'> <Link to={`/restaurants`} id='sblink'> Return to Search </Link> </div>
         <div className='restaurant-save'>
           <RestaurantShowComponent
             id={this.state.restaurant.id}

@@ -1,6 +1,6 @@
 class Api::MatchesController < ApiController
   def index
-    render json: Match.where(user_id: current_user.id)
+    render json: Match.where(user_id: current_user.id), adapter: false
   end
 
   def show
